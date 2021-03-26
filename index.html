@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+      $.ajax({
+        type: 'GET',
+        url: 'https://sistema.aseguratuviaje.com/WebApi18/api/Voucher?voucher=LA000',
+        success: function(result) {
+          $('#result').html("<iframe src=''" + result + "''></iframe>");
+        },
+        error: function(err) {
+          $('#result').html(err);
+        }
+      });
+  });
+});
+</script>
+</head>
+<body>
+
+<div id="result"></div>
+
+<button>Get voucher</button>
+
+</body>
+</html>
+
